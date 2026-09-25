@@ -69,6 +69,7 @@ impl SessionStore {
 
     /// Kill switch (ASI10): revoke by session id or by agent name, effective
     /// for every subsequent call, mid-session, no restart.
+    #[allow(clippy::manual_map)]
     pub fn kill(&self, target: &str) -> bool {
         let by_session = self.map.lock().unwrap().contains_key(target);
         if by_session {

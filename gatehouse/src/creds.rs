@@ -55,6 +55,12 @@ fn sign(key: &[u8], msg: &[u8]) -> Vec<u8> {
     mac.finalize().into_bytes().to_vec()
 }
 
+impl Default for CredBroker {
+    fn default() -> Self {
+        CredBroker::new()
+    }
+}
+
 impl CredBroker {
     pub fn new() -> CredBroker {
         let mut key = vec![0u8; 32];

@@ -47,6 +47,12 @@ fn day_now() -> u64 {
         .unwrap_or(0)
 }
 
+impl Default for Limiter {
+    fn default() -> Self {
+        Limiter::new()
+    }
+}
+
 impl Limiter {
     pub fn new() -> Limiter {
         Limiter { map: Mutex::new(HashMap::new()) }

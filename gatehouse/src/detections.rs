@@ -34,6 +34,12 @@ fn rx(pattern: &str) -> Regex {
     Regex::new(pattern).expect("static pattern must compile")
 }
 
+impl Default for Engine {
+    fn default() -> Self {
+        Engine::new()
+    }
+}
+
 impl Engine {
     pub fn new() -> Engine {
         // Injection families: the recurring shapes of instructions

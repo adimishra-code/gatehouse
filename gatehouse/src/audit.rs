@@ -134,6 +134,8 @@ impl AuditChain {
         self.inner.lock().unwrap().prev_hash.clone()
     }
 
+    /// Total entries appended since genesis (including rotated-out ones).
+    #[allow(clippy::len_without_is_empty)]
     pub fn len(&self) -> u64 {
         self.inner.lock().unwrap().seq
     }

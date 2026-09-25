@@ -343,6 +343,7 @@ async fn http_post(
 }
 
 #[allow(clippy::too_many_arguments)]
+#[allow(clippy::too_many_arguments)]
 fn build_event(
     id: u64,
     agent: &str,

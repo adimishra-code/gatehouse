@@ -75,7 +75,8 @@ async fn run() {
         if let Some(cmd) = &tool.command {
             match stdio_proxy::StdioTransport::spawn(cmd, &tool.args) {
                 Ok(t) => {
-                    tracing::info!("stdio server '{}' spawned ({} {})", tool.name, cmd, tool.args.join(" "));
+                    let arglist = tool.args.join(" ");
+                    tracing::info!("stdio server '{}' spawned ({cmd} {arglist})", tool.name);
                     stdio.insert(tool.name.clone(), t);
                 }
                 Err(e) => tracing::warn!("server '{}' not started: {e}", tool.name),

@@ -1,0 +1,11 @@
+{
+  "name": "gatehouse",
+  "private": true,
+  "version": "0.1.0",
+  "description": "The security checkpoint for AI agents — every tool call inspected, every decision on the record.",
+  "type": "module",
+  "scripts": {
+    "demo:attack": "node demo/attack.mjs",
+    "demo:policy": "node demo/set-policy.mjs"
+  }
+}

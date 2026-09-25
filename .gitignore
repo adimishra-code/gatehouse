@@ -1,0 +1,19 @@
+# Rust
+gatehouse/target/
+
+# Node
+node_modules/
+console/dist/
+
+# State that should never leave the machine
+vault.json
+policies.json
+audit.log
+data/
+
+# Frontend build artifacts
+*.tsbuildinfo
+
+# App metadata
+.freebuff/
+.DS_Store

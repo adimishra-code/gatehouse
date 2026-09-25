@@ -1,0 +1,25 @@
+# Gatehouse — one command, self-hosted, zero cloud dependency.
+#
+#   docker compose up --build
+#
+# Console:  http://localhost:8080
+# MCP gate: POST http://localhost:8080/mcp-echo  (JSON-RPC, x-gatehouse-agent header)
+#
+# Upstream credentials go in the environment, never in this file:
+#   DEMO_UPSTREAM_TOKEN=... docker compose up
+services:
+  gateway:
+    build:
+      context: ..
+      dockerfile: deploy/Dockerfile
+    ports:
+      - "8080:8080"
+    environment:
+      # ASI03: the broker loads this once at boot; it never appears in logs.
+      - DEMO_UPSTREAM_TOKEN=${DEMO_UPSTREAM_TOKEN:-}
+    volumes:
+      - gatehouse-data:/data
+    restart: unless-stopped
+
+volumes:
+  gatehouse-data:

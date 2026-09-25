@@ -1,0 +1,12 @@
+# Container config: paths are absolute; listen on all interfaces for the
+# port mapping; upstream credentials come from the environment at boot.
+listen = "0.0.0.0:8080"
+max_calls_per_min = 60
+spend_limit_usd = 50.0
+cost_per_call = 0.01
+
+[[tools]]
+name = "mcp-echo"
+command = "node"
+args = ["/opt/demo/mcp-echo-server.mjs"]
+# upstream_auth_env = "DEMO_UPSTREAM_TOKEN"

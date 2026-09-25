@@ -1,0 +1,21 @@
+# Gatehouse demo configuration.
+# Upstream credentials are pulled from the environment at boot and never
+# shown in the console or audit log (set DEMO_UPSTREAM_TOKEN to see the
+# credential broker register a real value).
+
+listen = "127.0.0.1:8080"
+max_calls_per_min = 60
+spend_limit_usd = 50.0
+cost_per_call = 0.01
+
+[[tools]]
+name = "mcp-echo"
+command = "node"
+args = ["demo/mcp-echo-server.mjs"]
+# upstream_auth_env = "DEMO_UPSTREAM_TOKEN"   # uncomment to exercise ASI03
+
+# HTTP-transport MCP servers use upstream_url instead:
+# [[tools]]
+# name = "remote-tools"
+# upstream_url = "https://mcp.example.com/rpc"
+# upstream_auth_env = "REMOTE_TOKEN"
